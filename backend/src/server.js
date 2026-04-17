@@ -9,11 +9,11 @@ const PORT = process.env.PORT || 5000;
 
 const authRoutes = require('./routes/auth');
 const decisionRoutes = require('./routes/decision');
+const goalRoutes = require('./routes/goal');
+const analyticsRoutes = require('./routes/analytics');
 
 app.use(cors());
 app.use(express.json());
-app.use('/auth', authRoutes);
-app.use('/decision', decisionRoutes);
 
 app.get('/', (req,  res) => {
     res.json({ message: 'Server is running' });
@@ -27,6 +27,11 @@ app.get('/health', async (req, res) => {
         res.status(599).json({ db: 'failed', error: err.message});
     }
 });
+
+app.use('/auth', authRoutes);
+app.use('/decision', decisionRoutes);
+app.use('/goal', goalRoutes);
+app.use('/analytics', analyticsRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
