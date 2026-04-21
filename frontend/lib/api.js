@@ -11,7 +11,7 @@ export async function registerUser(email, password) {
 
 export async function loginUser(email, password) {
     const res = await fetch(`${BASE_URL}/auth/login`, {
-        method: post,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ email, password }),
     });
@@ -20,7 +20,7 @@ export async function loginUser(email, password) {
 
 export async function createDecision(user_id, title, category){
     const res = await fetch(`${BASE_URL}/decision/create`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ user_id, title, category }),
     });
@@ -34,7 +34,7 @@ export async function getAllDecisions(user_id){
 
 export async function addDecisionEvent(decision_id, event_type, confidence, decision_outcome){
     const res = await fetch(`${BASE_URL}/decision/event`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ decision_id, event_type, confidence, decision_outcome }),
     });
@@ -43,7 +43,7 @@ export async function addDecisionEvent(decision_id, event_type, confidence, deci
 
 export async function addDecisionReview(decision_id, regret_score, satisfaction_score, would_repeat){
     const res = await fetch(`${BASE_URL}/decision/review`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ decision_id, regret_score, satisfaction_score, would_repeat }),
     });
@@ -52,7 +52,7 @@ export async function addDecisionReview(decision_id, regret_score, satisfaction_
 
 export async function createGoal(user_id, title, priority){
     const res = await fetch(`${BASE_URL}/goal/create`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id, title, priority }),
     });
@@ -66,7 +66,7 @@ export async function getAllGoals(user_id){
 
 export async function addGoalVersion(goal_id, title, priority){
     const res = await fetch(`${BASE_URL}/goal/version`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ goal_id, title, priority }),
     });
@@ -75,16 +75,16 @@ export async function addGoalVersion(goal_id, title, priority){
 
 export async function addGoalAction(goal_id, action_date, effort_level){
     const res = await fetch(`${BASE_URL}/goal/action`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ goal_id, action_date, effort_level }),
     });
     return res.json();
 }
 
-export async function addReview(goal_id, clarity_score, motivation_score){
+export async function addGoalReview(goal_id, clarity_score, motivation_score){
     const res = await fetch(`${BASE_URL}/goal/review`, {
-        method: POST,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ goal_id, clarity_score, motivation_score }),
     });
