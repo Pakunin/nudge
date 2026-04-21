@@ -2,7 +2,7 @@ const BASE_URL = 'http://localhost:5000';
 
 export async function registerUser(email, password) {
     const res = await fetch(`${BASE_URL}/auth/register`, {
-        method: postMessage,
+        method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ email, password }),
     });
