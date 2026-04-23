@@ -34,14 +34,14 @@ export default function LoginPage() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border px-3 py-2 rounded mb-3 text-sm"
+          className="w-full border px-3 py-2 rounded mb-3 text-sm text-black"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full border px-3 py-2 rounded mb-3 text-sm"
+          className="w-full border px-3 py-2 rounded mb-3 text-sm text-black"
         />
 
         {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
