@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { registerUser } from '../../lib/api';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { registerUser } from "../../lib/api";
 import Image from "next/image";
 import customBg from "../../public/bg.png";
 import dotgrid from "../../public/texture.svg";
@@ -11,16 +11,16 @@ import shapebg from "../../public/shapebg.png";
 
 export default function RegisterPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const maskSvg = `url("data:image/svg+xml,%3Csvg viewBox='0 0 210 961' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M309.607 406C227.107 366.5 40.2071 201.458 0.607422 0.5H1080.11V960.5H309.607C309.607 960.5 291.607 917.5 345.107 849.5C398.607 781.5 481.607 741.5 463.607 621.5C445.607 501.5 392.107 445.5 309.607 406Z' fill='black'/%3E%3C/svg%3E")`;
-  
+
   const handleRegister = async () => {
-    setError('');
-    setMessage('');
+    setError("");
+    setMessage("");
     const data = await registerUser(email, password);
 
     if (data.error) {
@@ -28,13 +28,13 @@ export default function RegisterPage() {
       return;
     }
 
-    setMessage('Registered successfully! Redirecting...');
-    setTimeout(() => router.push('/'), 1500);
+    setMessage("Registered successfully! Redirecting...");
+    setTimeout(() => router.push("/"), 1500);
   };
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#F9E9E0]">
-      <div className='relative w-full h-full'>
+      <div className="relative w-full h-full">
         <Image src={dotgrid} alt="svg" fill className="object-cover" priority />
       </div>
 
